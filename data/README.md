@@ -1,85 +1,65 @@
-# 📁 Dataset Instructions
+# 📁 Dataset
 
-This folder should contain the dataset for the VAE Music Clustering project.
+This folder contains the dataset for the VAE Music Clustering project.
 
-## Required Files
+## 📥 Download Links
 
+### Audio Files (WAV)
+> **Google Drive**: [Download wav_files (~2GB)](https://drive.google.com/drive/folders/1Vkr92gfxhmQvyf0wFdiIuj0popHXyqUI?usp=sharing)
+
+Download the `wav_files` folder and place it in the `data/` directory:
 ```
 data/
-├── Music Dataset - Sheet1.csv    # Song metadata with lyrics
-└── wav_files/                    # Audio files (30-second clips)
-    ├── song1_30s.wav
-    ├── song2_30s.wav
-    └── ... (2891 files)
+├── audio/
+│   └── wav_files/
+│       ├── song1_30s.wav
+│       ├── song2_30s.wav
+│       └── ... (2891 files)
+└── lyrics/
+    └── Music Dataset - Sheet1.csv
 ```
 
-## Dataset Description
+### CSV Metadata
+The `Music Dataset - Sheet1.csv` file is included in this repository.
 
-| File | Description | Size |
-|------|-------------|------|
-| `Music Dataset - Sheet1.csv` | Contains track_name, lyrics, playlist_genre | ~6.3 MB |
-| `wav_files/` | 30-second audio clips in WAV format | ~2 GB |
+## 📊 Dataset Description
+
+| Component | Description | Size |
+|-----------|-------------|------|
+| `Music Dataset - Sheet1.csv` | Track name, lyrics, genre | ~6.3 MB |
+| `wav_files/` | 30-second audio clips | ~2 GB |
+
+### Statistics
+- **Total Songs**: 3,103 in CSV, 2,891 audio files
+- **Matched Songs**: 2,890 (99.97% match rate)
+- **Genres**: 6 (pop, rock, rap, r&b, edm, latin)
+
+### Genre Distribution
+| Genre | Count |
+|-------|-------|
+| pop | 673 |
+| rock | 606 |
+| rap | 586 |
+| r&b | 543 |
+| edm | 350 |
+| latin | 345 |
 
 ### CSV Columns
-
-- `track_name`: Name of the song
-- `lyrics`: Song lyrics (text)
-- `playlist_genre`: Genre label (edm, latin, pop, r&b, rap, rock)
+| Column | Type | Description |
+|--------|------|-------------|
+| `track_name` | string | Name of the song |
+| `lyrics` | string | Full lyrics text |
+| `playlist_genre` | string | Genre category |
 
 ### Audio Files
+- **Format**: WAV (mono)
+- **Sample Rate**: 22,050 Hz
+- **Duration**: 30 seconds each
+- **Naming**: `{track_name}_30s.wav`
 
-- Format: WAV (mono, 22050 Hz)
-- Duration: 30 seconds each
-- Naming: `{track_name}_30s.wav`
+## 🔗 File Matching
 
-## 🔽 How to Obtain the Dataset
-
-### Option 1: Use Your Own Dataset
-
-If you have your own music dataset:
-1. Prepare audio files as 30-second WAV clips
-2. Create a CSV with columns: `track_name`, `lyrics`, `playlist_genre`
-3. Name audio files to match the `track_name` column
-
-### Option 2: Download from Course Materials
-
-If this is for CSE425:
-1. Download the dataset from the course portal
-2. Extract to this `data/` folder
-
-### Option 3: Use Public Datasets
-
-You can adapt public music datasets:
-
-- **GTZAN Genre Collection**: http://marsyas.info/downloads/datasets.html
-- **Million Song Dataset**: http://millionsongdataset.com/
-- **Jamendo Dataset**: https://www.kaggle.com/datasets/andradaolteanu/jamendo-music-dataset
-
-## 📂 Setting Up for Google Colab
-
-1. Upload the dataset to your Google Drive:
-   ```
-   Google Drive/
-   └── VAE_Music_Clustering_Project/
-       ├── Music Dataset - Sheet1.csv
-       └── wav_files/
-           └── *.wav
-   ```
-
-2. Update the path in the notebook:
-   ```python
-   DRIVE_PATH = '/content/drive/MyDrive/VAE_Music_Clustering_Project'
-   ```
-
-## ⚠️ Important Notes
-
-- Audio files are **NOT included** in this repository due to size (~2 GB)
-- The CSV file may or may not be included depending on licensing
-- Make sure audio filenames match the `track_name` column in the CSV
-
-## 🔗 Matching Logic
-
-The code matches audio files to CSV entries using:
+The code matches audio files to CSV entries using cleaned track names:
 
 ```python
 def clean_track_name(name):
@@ -88,7 +68,25 @@ def clean_track_name(name):
     name = re.sub(r'_+', '_', name)
     return name.strip('_')
 
-# Audio: "24k_magic_30s.wav" → "24k_magic"
+# Example:
 # CSV:   "24K Magic" → "24k_magic"
+# Audio: "24k_magic_30s.wav" → "24k_magic"
 # Result: ✅ Match!
 ```
+
+## 🚀 Setup for Google Colab
+
+1. Download wav_files from the Drive link above
+2. Upload to your Google Drive:
+   ```
+   Google Drive/
+   └── VAE_Music_Clustering_Project/
+       ├── Music Dataset - Sheet1.csv
+       └── wav_files/
+           └── *.wav
+   ```
+
+3. Update path in notebook:
+   ```python
+   DRIVE_PATH = '/content/drive/MyDrive/VAE_Music_Clustering_Project'
+   ```

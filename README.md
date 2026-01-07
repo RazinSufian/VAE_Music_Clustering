@@ -28,13 +28,9 @@ This project explores unsupervised music clustering using deep generative models
 
 ### Visualizations
 
-<p align="center">
-  <img src="results/tsne_visualization.png" width="80%" alt="t-SNE Visualization"/>
-</p>
-
-<p align="center">
-  <img src="results/confusion_matrix.png" width="80%" alt="Confusion Matrix"/>
-</p>
+| t-SNE Latent Space | Confusion Matrix |
+|:------------------:|:----------------:|
+| ![t-SNE](results/latent_visualization/tsne_visualization.png) | ![Confusion](results/confusion_matrix.png) |
 
 ## 🏗️ Architecture
 
@@ -51,26 +47,20 @@ This project explores unsupervised music clustering using deep generative models
 │  │ Conv2d(64)  │            │ Linear(32)  │                │
 │  │ Conv2d(128) │            └──────┬──────┘                │
 │  └──────┬──────┘                   │                        │
-│         │                          │                        │
 │         └──────────┬───────────────┘                        │
 │                    ▼                                        │
-│            ┌──────────────┐                                 │
-│            │   Fusion     │                                 │
-│            │  (Concat)    │                                 │
-│            └──────┬───────┘                                 │
-│                   ▼                                         │
-│         ┌─────────────────┐                                 │
-│         │ μ (mean)        │                                 │
-│         │ σ (logvar)      │  → Latent Space (32-dim)       │
-│         └────────┬────────┘                                 │
-│                  │                                          │
-│         ┌────────┴────────┐                                 │
-│         ▼                 ▼                                 │
+│              [Concatenate]                                  │
+│                    │                                        │
+│         ┌─────────┴─────────┐                              │
+│         │    μ    │    σ    │  ← Latent Space (32-dim)     │
+│         └─────────┬─────────┘                              │
+│                   │                                         │
+│         ┌────────┴────────┐                                │
+│         ▼                 ▼                                │
 │  ┌─────────────┐   ┌─────────────┐                         │
 │  │Audio Decoder│   │Text Decoder │                         │
 │  │(TransConv2d)│   │  (Linear)   │                         │
 │  └─────────────┘   └─────────────┘                         │
-│                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -80,74 +70,80 @@ This project explores unsupervised music clustering using deep generative models
 VAE_Music_Clustering/
 ├── README.md                    # This file
 ├── requirements.txt             # Python dependencies
-├── .gitignore                   # Git ignore rules
-│
-├── notebooks/
-│   └── VAE_Music_Clustering_FINAL.ipynb  # Main notebook (run on Colab)
+├── LICENSE                      # MIT License
 │
 ├── data/
-│   └── README.md                # Instructions for obtaining dataset
+│   ├── README.md                # Dataset download instructions
+│   └── audio/                   # Audio files (download separately)
 │
-├── results/                     # Output visualizations (after running)
-│   ├── training_curves.png
-│   ├── reconstruction_examples.png
-│   ├── tsne_visualization.png
-│   ├── umap_visualization.png
-│   ├── confusion_matrix.png
-│   ├── cluster_selection.png
-│   └── clustering_metrics.csv
+├── notebooks/
+│   └── VAE_Music_Clustering_FINAL.ipynb  # Main notebook
 │
-└── docs/
-    └── report.pdf               # NeurIPS-style report (if available)
+├── src/
+│   ├── __init__.py              # Package init
+│   ├── vae.py                   # VAE model architecture
+│   ├── dataset.py               # Data loading & feature extraction
+│   ├── clustering.py            # Clustering algorithms
+│   └── evaluation.py            # Metrics & evaluation
+│
+└── results/
+    ├── latent_visualization/    # t-SNE, UMAP plots
+    ├── clustering_metrics.csv   # Evaluation results
+    ├── training_curves.png
+    ├── reconstruction_examples.png
+    └── confusion_matrix.png
 ```
+
+## 📥 Dataset
+
+### Download Links
+
+| File | Size | Link |
+|------|------|------|
+| Audio Files (wav_files) | ~2 GB | [Google Drive](https://drive.google.com/drive/folders/1Vkr92gfxhmQvyf0wFdiIuj0popHXyqUI?usp=sharing) |
+| Metadata CSV | 6.3 MB | Included in repo |
+
+### Statistics
+- **Songs**: 2,890 matched (6 genres)
+- **Audio**: 30-second WAV clips, 22050 Hz
+- **Features**: MFCC (20) + Chroma (12) + Spectral Contrast (7)
+- **Text**: TF-IDF (500) → PCA (64)
 
 ## 🚀 Quick Start
 
-### 1. Clone the Repository
-
+### 1. Clone Repository
 ```bash
 git clone https://github.com/RazinSufian/VAE_Music_Clustering.git
 cd VAE_Music_Clustering
 ```
 
-### 2. Set Up Dataset
+### 2. Download Dataset
+Download audio files from [Google Drive](https://drive.google.com/drive/folders/1Vkr92gfxhmQvyf0wFdiIuj0popHXyqUI?usp=sharing) and place in `data/audio/`.
 
-See [data/README.md](data/README.md) for instructions on obtaining and preparing the dataset.
-
-### 3. Run on Google Colab
-
-1. Upload `notebooks/VAE_Music_Clustering_FINAL.ipynb` to Google Colab
-2. Enable GPU runtime: `Runtime → Change runtime type → GPU`
-3. Mount your Google Drive with the dataset
-4. Update the `DRIVE_PATH` variable to point to your data
-5. Run all cells
+### 3. Run on Google Colab (Recommended)
+1. Upload `notebooks/VAE_Music_Clustering_FINAL.ipynb` to Colab
+2. Enable GPU: `Runtime → Change runtime type → GPU`
+3. Mount Google Drive with the dataset
+4. Run all cells
 
 ### 4. Local Installation (Optional)
-
 ```bash
 pip install -r requirements.txt
 ```
 
 ## 📦 Dependencies
 
-- Python 3.8+
-- PyTorch 2.0+
-- librosa
-- scikit-learn
-- pandas
-- numpy
-- matplotlib
-- seaborn
-- umap-learn (optional)
-
-## 🎯 Dataset
-
-The project uses a music dataset with:
-- **2,890 songs** across 6 genres (pop, rock, rap, r&b, edm, latin)
-- **Audio files**: 30-second WAV clips
-- **Metadata**: Track names, genres, lyrics
-
-> ⚠️ The audio files (~2GB) are not included in this repository due to size constraints. See [data/README.md](data/README.md) for download instructions.
+```
+torch>=2.0.0
+librosa>=0.10.0
+scikit-learn>=1.0.0
+pandas>=1.3.0
+numpy>=1.21.0
+matplotlib>=3.5.0
+seaborn>=0.12.0
+umap-learn>=0.5.0
+tqdm>=4.60.0
+```
 
 ## 📈 Metrics Explained
 
@@ -156,8 +152,8 @@ The project uses a music dataset with:
 | **Silhouette Score** | Cluster cohesion vs separation | Higher (max 1) |
 | **Calinski-Harabasz** | Ratio of between/within cluster variance | Higher |
 | **Davies-Bouldin** | Average cluster similarity | Lower |
-| **ARI** | Agreement with ground truth | Higher (max 1) |
-| **NMI** | Mutual information with labels | Higher (max 1) |
+| **ARI** | Agreement with ground truth (adjusted for chance) | Higher (max 1) |
+| **NMI** | Mutual information with labels (normalized) | Higher (max 1) |
 | **Purity** | Dominant class fraction per cluster | Higher |
 
 ## 🔬 Key Findings
@@ -168,8 +164,6 @@ The project uses a music dataset with:
 4. **Optimal clusters ≠ Number of genres** - The model found K=4 optimal despite having 6 genre labels
 
 ## 📝 Citation
-
-If you use this code for your research, please cite:
 
 ```bibtex
 @misc{vae_music_clustering_2026,
