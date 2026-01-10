@@ -74,7 +74,11 @@ VAE_Music_Clustering/
 │
 ├── data/
 │   ├── README.md                # Dataset download instructions
-│   └── audio/                   # Audio files (download separately)
+│   ├── audio/                   # Audio files (download separately)
+│   └── lyrics/                  # CSV metadata
+│
+├── docs/
+│   └── report.pdf               # NeurIPS-style project report
 │
 ├── notebooks/
 │   └── VAE_Music_Clustering_FINAL.ipynb  # Main notebook
@@ -84,9 +88,15 @@ VAE_Music_Clustering/
 │   ├── vae.py                   # VAE model architecture
 │   ├── dataset.py               # Data loading & feature extraction
 │   ├── clustering.py            # Clustering algorithms
-│   └── evaluation.py            # Metrics & evaluation
+│   ├── evaluation.py            # Metrics & evaluation
+│   ├── train.py                 # Training loop & utilities
+│   ├── config.py                # Hyperparameters & configuration
+│   ├── visualization.py         # Plotting functions
+│   └── utils.py                 # Helper functions
 │
 └── results/
+    ├── models/                  # Saved model weights
+    ├── features/                # Extracted latent features
     ├── latent_visualization/    # t-SNE, UMAP plots
     ├── clustering_metrics.csv   # Evaluation results
     ├── training_curves.png
