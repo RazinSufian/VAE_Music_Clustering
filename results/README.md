@@ -1,8 +1,8 @@
-# 📊 Results
+# Results
 
 This folder contains the output files from the VAE Music Clustering experiment.
 
-## 📁 Directory Structure
+## Directory Structure
 
 ```
 results/
@@ -31,7 +31,7 @@ results/
 └── distributions.png               # Distribution plots
 ```
 
-## 📈 Clustering Results
+## Clustering Results
 
 ```
 ================================================================================
@@ -44,7 +44,7 @@ PCA + K-Means            4       0.174           210.44           2.497      0.0
 ================================================================================
 ```
 
-## 📊 Training Summary
+## Training Summary
 
 - **Dataset**: 2,890 songs across 6 genres
 - **Features**: 39 audio (MFCC+Chroma+Spectral) + 64 text (TF-IDF→PCA)
@@ -53,7 +53,7 @@ PCA + K-Means            4       0.174           210.44           2.497      0.0
 - **Best Loss**: 1.0371
 - **Model Parameters**: 1,256,897
 
-## 📂 File Descriptions
+## File Descriptions
 
 ### Metrics
 | File | Description |

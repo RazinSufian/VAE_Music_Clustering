@@ -1,4 +1,4 @@
-# 🎵 VAE Music Clustering
+# VAE Music Clustering
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
@@ -6,19 +6,19 @@
 
 A hybrid **Variational Autoencoder (VAE)** for music clustering using audio features (MFCC, Chroma, Spectral Contrast) and lyrics embeddings (TF-IDF). This project implements a **Beta-VAE** architecture with convolutional audio encoding for learning disentangled latent representations of music.
 
-## 📋 Project Overview
+## Project Overview
 
 This project explores unsupervised music clustering using deep generative models. The goal is to learn meaningful latent representations of songs that capture both audio characteristics and lyrical content, then cluster songs based on these representations.
 
 ### Key Features
 
-- 🎧 **Hybrid Architecture**: Combines CNN-based audio encoder with MLP text encoder
-- 🔄 **Beta-VAE**: Implements β-annealing for disentangled representations
-- 📊 **Multi-Modal**: Fuses MFCC/Chroma/Spectral audio features with TF-IDF lyrics
-- 🎯 **Multiple Clustering**: K-Means, Agglomerative, DBSCAN comparison
-- 📈 **Comprehensive Metrics**: Silhouette, Calinski-Harabasz, Davies-Bouldin, ARI, NMI, Purity
+- **Hybrid Architecture**: Combines CNN-based audio encoder with MLP text encoder
+- **Beta-VAE**: Implements β-annealing for disentangled representations
+- **Multi-Modal**: Fuses MFCC/Chroma/Spectral audio features with TF-IDF lyrics
+- **Multiple Clustering**: K-Means, Agglomerative, DBSCAN comparison
+- **Comprehensive Metrics**: Silhouette, Calinski-Harabasz, Davies-Bouldin, ARI, NMI, Purity
 
-## 📊 Results
+## Results
 
 | Method | Silhouette | CH Index | DB Index | ARI | NMI | Purity |
 |--------|------------|----------|----------|-----|-----|--------|
@@ -32,7 +32,7 @@ This project explores unsupervised music clustering using deep generative models
 |:------------------:|:----------------:|
 | ![t-SNE](results/latent_visualization/tsne_visualization.png) | ![Confusion](results/confusion_matrix.png) |
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -64,7 +64,7 @@ This project explores unsupervised music clustering using deep generative models
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 VAE_Music_Clustering/
@@ -104,7 +104,7 @@ VAE_Music_Clustering/
     └── confusion_matrix.png
 ```
 
-## 📥 Dataset
+## Dataset
 
 ### Download Links
 
@@ -119,7 +119,7 @@ VAE_Music_Clustering/
 - **Features**: MFCC (20) + Chroma (12) + Spectral Contrast (7)
 - **Text**: TF-IDF (500) → PCA (64)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone Repository
 ```bash
@@ -141,7 +141,7 @@ Download audio files from [Google Drive](https://drive.google.com/drive/folders/
 pip install -r requirements.txt
 ```
 
-## 📦 Dependencies
+## Dependencies
 
 ```
 torch>=2.0.0
@@ -155,7 +155,7 @@ umap-learn>=0.5.0
 tqdm>=4.60.0
 ```
 
-## 📈 Metrics Explained
+## Metrics Explained
 
 | Metric | Description | Optimal |
 |--------|-------------|---------|
@@ -166,14 +166,14 @@ tqdm>=4.60.0
 | **NMI** | Mutual information with labels (normalized) | Higher (max 1) |
 | **Purity** | Dominant class fraction per cluster | Higher |
 
-## 🔬 Key Findings
+## Key Findings
 
 1. **Beta-VAE learns smooth latent representations** - The β-annealing strategy prevents posterior collapse
 2. **Hybrid features outperform audio-only** - Combining audio + lyrics improves clustering quality
 3. **Genre boundaries are fuzzy** - Music genres have significant overlap, explaining modest ARI/NMI scores
 4. **Optimal clusters ≠ Number of genres** - The model found K=4 optimal despite having 6 genre labels
 
-## 📝 Citation
+## Citation
 
 ```bibtex
 @misc{vae_music_clustering_2026,
@@ -185,11 +185,11 @@ tqdm>=4.60.0
 }
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Course: CSE425 - Neural Networks
 - Dataset: Music Dataset with lyrics and audio features

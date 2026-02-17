@@ -1,8 +1,8 @@
-# 📁 Dataset
+# Dataset
 
 This folder contains the dataset for the VAE Music Clustering project.
 
-## 📥 Download Links
+## Download Links
 
 ### Audio Files (WAV)
 > **Google Drive**: [Download wav_files (~2GB)](https://drive.google.com/drive/folders/1Vkr92gfxhmQvyf0wFdiIuj0popHXyqUI?usp=sharing)
@@ -22,7 +22,7 @@ data/
 ### CSV Metadata
 The `Music Dataset - Sheet1.csv` file is included in this repository.
 
-## 📊 Dataset Description
+## Dataset Description
 
 | Component | Description | Size |
 |-----------|-------------|------|
@@ -57,7 +57,7 @@ The `Music Dataset - Sheet1.csv` file is included in this repository.
 - **Duration**: 30 seconds each
 - **Naming**: `{track_name}_30s.wav`
 
-## 🔗 File Matching
+## File Matching
 
 The code matches audio files to CSV entries using cleaned track names:
 
@@ -71,10 +71,10 @@ def clean_track_name(name):
 # Example:
 # CSV:   "24K Magic" → "24k_magic"
 # Audio: "24k_magic_30s.wav" → "24k_magic"
-# Result: ✅ Match!
+# Result: Match!
 ```
 
-## 🚀 Setup for Google Colab
+## Setup for Google Colab
 
 1. Download wav_files from the Drive link above
 2. Upload to your Google Drive:

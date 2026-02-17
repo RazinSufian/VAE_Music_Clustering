@@ -1,0 +1,199 @@
+================================================================================
+                            RAZIN SUFIAN
+              Academic Curriculum Vitae (for PhD Applications)
+================================================================================
+
+Email:    razinsufiancollege@gmail.com
+Phone:    +880-1719-420143
+LinkedIn: linkedin.com/in/razin-sufian
+GitHub:   github.com/RazinSufian
+
+================================================================================
+RESEARCH INTERESTS
+================================================================================
+
+Medical Image Analysis · Computer-Aided Diagnosis (CAD) · Deep Learning for
+Healthcare · Explainable AI (XAI) · Computational Pathology · Cell Detection
+and Segmentation · Computer Vision in Biomedical Applications · AI for
+Low-Resource Healthcare Settings
+
+
+================================================================================
+EDUCATION
+================================================================================
+
+Bachelor of Science in Computer Science                    May 2022 – May 2026
+BRAC University, Dhaka, Bangladesh                   (Expected Graduation)
+CGPA: 3.84 / 4.00 (up to 11th semester)
+  • Merit-based scholarship recipient throughout undergraduate studies
+  • Medium of instruction: English
+
+
+================================================================================
+RESEARCH EXPERIENCE
+================================================================================
+
+Undergraduate Thesis Researcher                            Jan 2025 – Present
+Supervisor: [YOUR THESIS SUPERVISOR'S NAME — FILL IN]
+BRAC University, Department of Computer Science
+
+Thesis: "Dataset Creation & Disease Classification from Microscopic Pap
+         Smear Slide Images Using Deep Learning with Explainable AI"
+
+  • Created a multicenter cervical cytology dataset of 5,000+ Pap smear
+    images collected from hospitals in Barishal, Bangladesh
+  • Physically transported slides to BRAC University's Biotechnology
+    Research Laboratory for digitization at 40x magnification
+  • Designed and developed a secure web-based annotation portal enabling
+    remote cytopathologists to annotate images — solving the "expert
+    bottleneck" problem in low-resource settings
+  • Built a multi-stage classification pipeline:
+      ◦ Stage 1: Stain normalization (Macenko/Vahadane) for cross-lab
+        consistency
+      ◦ Stage 2: Cell segmentation using YOLOv8 and Cellpose
+      ◦ Stage 3: Individual cell classification via ResNet152 + SVM
+        hybrid approach (Normal, ASC-US, LSIL, HSIL)
+      ◦ Stage 4: Slide-level aggregation for final diagnosis
+  • Integrated Grad-CAM explainability for clinical transparency
+  • Developing NLP-generated rationales for human-readable diagnostic
+    explanations
+
+
+================================================================================
+PUBLICATIONS
+================================================================================
+
+[IN PREPARATION — update this section when you submit or publish your thesis]
+
+  • Sufian, R. et al. "Dataset Creation & Disease Classification from
+    Microscopic Pap Smear Slide Images Using Deep Learning with
+    Explainable AI." [Target journal/conf — fill in]. 2026.
+
+
+================================================================================
+PROFESSIONAL EXPERIENCE
+================================================================================
+
+Software Developer Intern                               May 2024 – Nov 2024
+XORGeek, Dhaka, Bangladesh
+
+  • Designed and implemented backend logic for production Flutter
+    applications using AWS Lambda microservices, DynamoDB, S3, and
+    Cognito authentication
+  • Integrated RESTful APIs in Flutter frontend using GetX state
+    management (MVVM architecture)
+  • Built scalable cloud-based backend systems for enterprise
+    applications deployed in production
+  • Collaborated on full-stack features, code reviews, testing, and
+    debugging in an agile team environment
+
+
+================================================================================
+TECHNICAL SKILLS
+================================================================================
+
+Programming:     Python, Dart, C++, JavaScript/TypeScript
+ML/DL:           PyTorch, CNN architectures, ResNet152, Transfer Learning,
+                 SVM, scikit-learn, Feature Extraction
+Computer Vision: OpenCV, Image Classification, Object Detection, Cell
+                 Segmentation (YOLOv8, Cellpose, Mask R-CNN)
+Explainable AI:  Grad-CAM, Model Interpretability
+Data Science:    pandas, NumPy, Data Augmentation, Dataset Curation
+Cloud/Backend:   AWS (Lambda, API Gateway, S3, DynamoDB, Cognito),
+                 Serverless Architecture, REST APIs
+Web/Mobile:      Flutter, Next.js, React, Node.js, Express, Tailwind CSS
+DevOps:          Linux, Git, Docker, CI/CD, Bash Scripting
+Databases:       DynamoDB, MySQL, MongoDB
+
+
+================================================================================
+NOTABLE PROJECTS
+================================================================================
+
+Diabetes Prediction Using Machine Learning              2024
+  • Analyzed 200,000 medical student records with 13 clinical features to
+    predict diabetes using multiple ML approaches
+  • Implemented and compared 7 classification models (Logistic Regression,
+    KNN, Decision Tree, Naive Bayes, SVM, Random Forest, XGBoost) and a
+    TensorFlow/Keras deep neural network with dropout and early stopping
+  • Addressed class imbalance using SMOTE oversampling and class-weight
+    balancing; evaluated with confusion matrices, ROC/AUC curves, and
+    classification reports
+  • github.com/RazinSufian/diabetes-prediction-ml
+
+Student Depression Prediction Using Machine Learning    2024
+  • Built predictive models on ~28,000 student records covering academic
+    performance, lifestyle, financial stress, and mental health indicators
+  • Compared 7 ML classifiers on both original and PCA-reduced feature
+    sets to evaluate the impact of dimensionality reduction on prediction
+    accuracy
+  • Performed comprehensive preprocessing: binary/one-hot encoding,
+    ordinal mapping, null imputation, and feature scaling
+  • github.com/RazinSufian/student-depression-prediction
+
+Web-Based Annotation Portal for Medical Images         2025
+  • Expert-in-the-loop system allowing remote cytopathologists to annotate
+    and classify Pap smear images for dataset creation
+
+ABLAB Laboratory Management Web App                    2024
+  • Full-stack Next.js + TypeScript + AWS web application for patient
+    enrollment, billing, report generation, and analytics
+  • github.com/RazinSufian/ABLabWeb
+
+Pet Shop Management System (Production — XORGeek)      2024
+  • Flutter mobile app with full AWS serverless backend (Lambda,
+    DynamoDB, S3, Cognito) deployed for real store owners
+  • Live: dogcatbirth-records.com
+
+
+================================================================================
+SCHOLARSHIPS & AWARDS
+================================================================================
+
+  • BRAC University Merit Scholarship (maintained throughout UG studies)
+  • HSC Government Scholarship (Higher Secondary Certificate Board Exam)
+  • JSC Scholarship (Junior School Certificate Board Exam)
+  • PSC Scholarship (Primary School Certificate Board Exam)
+
+
+================================================================================
+CERTIFICATIONS & ADDITIONAL TRAINING
+================================================================================
+
+  • Importing & Cleaning Data — DataCamp
+  • Reshaping Data with pandas — DataCamp
+  • Cleaning Data in Python — DataCamp
+  • Intermediate Importing Data — DataCamp
+  • BIL English Proficiency Certificate — BRAC Institute of Languages
+
+
+================================================================================
+REFERENCES
+================================================================================
+
+NOTE: This section lists people who can speak about your abilities.
+      You only need their CONSENT to be listed here ("Can I list you
+      as a reference?"). You do NOT attach any letters to your CV.
+      Actual recommendation LETTERS come later — only when you formally
+      apply through a university portal, AFTER a professor agrees to
+      supervise you. The university will contact your references directly.
+
+      → Ask your thesis supervisor: "Can I list you as a reference?"
+      → Ask 1-2 other professors the same question
+      → That's it for now!
+
+1. [YOUR THESIS SUPERVISOR — FILL IN]
+   [Title & Department]
+   BRAC University
+   Email: [fill in]
+
+2. [ANOTHER PROFESSOR WHO KNOWS YOUR WORK WELL — FILL IN]
+   [Title & Department]
+   BRAC University
+   Email: [fill in]
+
+3. Sohel Mazumder
+   CEO — XOR Geek
+   Phone: +880-1784-200600
+
+================================================================================
